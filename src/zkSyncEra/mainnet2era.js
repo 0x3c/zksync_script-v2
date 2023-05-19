@@ -8,7 +8,7 @@ const zkSyncProvider = new zksync.Provider("https://mainnet.era.zksync.io");
 const ethProvider = ethers.getDefaultProvider();
 
 
-export async function mainnet2era(private_keys, value = 50) {
+export async function mainnet2era(private_keys, value = 10) {
   for (let i = 0; i < private_keys.length; i++) {
     const zkSyncWallet = new zksync.Wallet(
       private_keys[i],
@@ -16,6 +16,7 @@ export async function mainnet2era(private_keys, value = 50) {
       ethProvider
     );
     try {
+      console.log(String((value + Number(Math.random().toFixed(2))) / 1000))
       const deposit = await zkSyncWallet.deposit({
         token: zksync.utils.ETH_ADDRESS,
         amount: ethers.utils.parseEther(

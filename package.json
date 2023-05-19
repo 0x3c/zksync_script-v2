@@ -9,10 +9,11 @@
     "zksync-era-bridge": "node --trace-warnings --no-warnings --experimental-modules --es-module-specifier-resolution=node ./src/zkSyncEra/mainnet2era.js",
     "zksync-era-mint-nft": "node --trace-warnings --no-warnings --experimental-modules --es-module-specifier-resolution=node ./src/zkSyncEra/mintSquare/index.js",
     "zksync-lite-transfer": "node --trace-warnings --no-warnings --experimental-modules --es-module-specifier-resolution=node ./src/zkSyncLite/transfer.js",
-    "zksync-lite-bridge": "node --trace-warnings --no-warnings --experimental-modules --es-module-specifier-resolution=node ./src/zkSyncLite/mainnet2era.js",
+    "zksync-lite-bridge": "node --trace-warnings --no-warnings --experimental-modules --es-module-specifier-resolution=node ./src/zkSyncLite/mainnet2lite.js",
     "zksync-lite-mint-nft": "node --trace-warnings --no-warnings --experimental-modules --es-module-specifier-resolution=node ./src/zkSyncLite/mintNft.js",
     "create-wallet": "node --trace-warnings --no-warnings --experimental-modules --es-module-specifier-resolution=node ./libs/createWallet.js",
     "zksync-era-lite-nonce": "node --trace-warnings --no-warnings --experimental-modules --es-module-specifier-resolution=node ./src/getEraAndLiteNonce.js",
+    "ok-withdraw": "node --trace-warnings --no-warnings --experimental-modules --es-module-specifier-resolution=node ./libs/okxWithdraw.js",
     "deploy": "yarn hardhat deploy-zksync --script deploy.ts"
   },
   "author": "",
@@ -33,5 +34,9 @@
     "web3-utils": "^1.9.0",
     "zksync": "^0.13.1",
     "zksync-web3js": "0.14.9"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
   }
 }

@@ -212,3 +212,5 @@ dist
 accounts
 
 .idea
+
+.DS_Store
