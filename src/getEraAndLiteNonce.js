@@ -26,20 +26,24 @@ const getNonce = async (privateKeys) => {
             ethProvider
         );
         console.log(`查询中 Querying Address:${address}...`);
-        const syncWalletStatus = await syncWallet.getAccountState();
-        console.log(syncWalletStatus.verified.balances.ETH / 1000000000000000000);
-        const liteBalance= syncWalletStatus.verified?.balances?.ETH !== undefined ? syncWalletStatus.verified.balances.ETH / 1000000000000000000 : 0;
+        // const syncWalletStatus = await syncWallet.getAccountState();
+        // console.log(syncWalletStatus.verified.balances.ETH / 1000000000000000000);
+        // const liteBalance= syncWalletStatus.verified?.balances?.ETH !== undefined ? syncWalletStatus.verified.balances.ETH / 1000000000000000000 : 0;
         const [lite, era] = await Promise.all([syncWallet.getNonce(), zkSyncWallet.getNonce()])
+        const balance = await syncWallet.getBalance('ETH');
+        const liteBalance = Number(syncProvider.tokenSet.formatToken('ETH', balance));
         console.table([{
             address,
             zksync_lite_nonce: lite,
             zksync_era_nonce: era,
+            zksync_lite_balance: liteBalance,
         }]);
         await updateWalletStatus(address, lite, era, liteBalance);
         lists.push({
             account: address,
             zksync_lite_nonce: lite,
             zksync_era_nonce: era,
+            zksync_lite_balance: liteBalance,
         })
     }
     console.table(lists)
