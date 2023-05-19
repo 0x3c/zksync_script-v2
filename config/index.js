@@ -2,7 +2,7 @@
  * 如果进行批量创建钱包，请配置创建钱包的数量
  * Create wallets in batches
  */
-export const createWalletNumber = 1;
+export const createWalletNumber = 98;
 
 
 /**
@@ -43,3 +43,11 @@ export const zksyncLiteMintNumber = 1;
  * eg.0xD7545C410be4343E44Df1D7ED58914854b7f96BE 自己给自己转账一次,每次转账0.0001 ，则 zksyncLiteTransferNumber = [1,0.001]
  */
 export const zksyncLiteTransferNumber = [1, 0.001]
+
+/**
+ * notion api的token，需要授权到对应的database
+ * @type {string}
+ */
+export const notionToken = 'secret_EauCEyKWOg7c313v8T96lpEojEjq3Dv4WKzEOQONug6'
+
+export const notionWalletDBId = '3cbdb7510bd44c3a86a025f9b0b8c448';
